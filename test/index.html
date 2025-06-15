@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On-Screen Keyboard Test</title>
+    <style>
+        :root {
+            --ha-card-background: #ffffff;
+            --divider-color: #e0e0e0;
+            --primary-color: #03a9f4;
+            --primary-color-dark: #0288d1;
+            --text-primary-color: #ffffff;
+            --secondary-text-color: #666666;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .test-buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: var(--primary-color-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>On-Screen Keyboard Test</h1>
+        
+        <div class="input-group">
+            <label for="text-input">Text Input:</label>
+            <input type="text" id="text-input" placeholder="Click to show keyboard">
+        </div>
+
+        <div class="input-group">
+            <label for="textarea-input">Textarea Input:</label>
+            <textarea id="textarea-input" placeholder="Click to show keyboard"></textarea>
+        </div>
+
+        <div class="test-buttons">
+            <button onclick="document.getElementById('text-input').focus()">Focus Text Input</button>
+            <button onclick="document.getElementById('textarea-input').focus()">Focus Textarea</button>
+        </div>
+    </div>
+
+    <script>
+        // Load the keyboard component
+        const script = document.createElement('script');
+        script.src = '../onscreen-keyboard/app.js';
+        document.body.appendChild(script);
+
+        // Create and configure the keyboard after the script loads
+        script.onload = () => {
+            const keyboard = document.createElement('onscreen-keyboard');
+            keyboard.setConfig({
+                theme: 'light',
+                animation_speed: 300,
+                keyboard_layout: 'qwerty'
+            });
+            document.body.appendChild(keyboard);
+        };
+    </script>
+</body>
+</html> 
