@@ -1,0 +1,11 @@
+{
+  "name": "On-Screen Keyboard Card",
+  "content_in_root": false,
+  "filename": "onscreen-keyboard.js",
+  "domains": [],
+  "country": "",
+  "homeassistant": ">=2022.0.0",
+  "render_readme": true,
+  "type": "template",
+  "description": "A smooth, animated on-screen keyboard for Home Assistant dashboards."
+} 

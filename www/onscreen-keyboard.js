@@ -290,7 +290,27 @@ class OnScreenKeyboard extends HTMLElement {
 
 customElements.define('onscreen-keyboard', OnScreenKeyboard);
 
-/* Hass custom-card registration (optional, keeps original API) */
+// Lovelace custom card wrapper
+class OnScreenKeyboardCard extends HTMLElement {
+  setConfig(config) {
+    if (this._keyboard) {
+      this._keyboard.setConfig(config);
+      return;
+    }
+    this.innerHTML = '';
+    this._keyboard = document.createElement('onscreen-keyboard');
+    this._keyboard.setConfig(config);
+    this.appendChild(this._keyboard);
+  }
+
+  getCardSize() {
+    return 1;
+  }
+}
+
+customElements.define('onscreen-keyboard-card', OnScreenKeyboardCard);
+
+// For Lovelace: register as custom:onscreen-keyboard
 window.customCards = window.customCards || [];
 window.customCards.push({
   type: 'onscreen-keyboard',
