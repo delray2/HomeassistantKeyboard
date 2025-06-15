@@ -6,6 +6,6 @@
   "country": "",
   "homeassistant": ">=2022.0.0",
   "render_readme": true,
-  "type": "template",
+  "type": "plugin",
   "description": "A smooth, animated on-screen keyboard for Home Assistant dashboards."
 } 
